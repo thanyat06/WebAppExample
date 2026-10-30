@@ -1,4 +1,5 @@
 using Scalar.AspNetCore;
+using WebAppExample.Middleware;
 using WebAppExample.Services;
 
 
@@ -12,6 +13,9 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton<IStudentService, StudentService>();
 
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +28,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseExceptionHandler();
 
 app.MapControllers();
 

@@ -12,6 +12,7 @@ public interface IStudentService
     StudentDto AddStudent(CreateStudentDto studentDto);
 
     StudentDto? UpdateStudent(int id, UpdateStudentDto studentDto);
+    bool DeleteStudent(int id);
 
     bool EmailExists(string email, int? id = null);
 }
