@@ -1,9 +1,10 @@
 ﻿using System.Xml.Linq;
+using WebAppExample.Services;
 using WebAppExample.Models;
 
 namespace WebAppExample.Services;
 
-public class StudentService
+public class StudentService : IStudentService
 {
     private readonly List<Student> _students = new()
     {

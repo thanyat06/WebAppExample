@@ -5,13 +5,12 @@ using WebAppExample.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers(); //Middleware 
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddSingleton<StudentService>();
+builder.Services.AddSingleton<IStudentService, StudentService>();
 
 var app = builder.Build();
 
