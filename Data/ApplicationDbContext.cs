@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebAppExample.Models;
 
 namespace WebAppExample.Data;
 
@@ -9,4 +10,6 @@ public class ApplicationDbContext : DbContext
         : base(options)
     {
     }
+
+    public DbSet<Student> Students => Set<Student>();
 }
