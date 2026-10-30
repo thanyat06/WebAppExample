@@ -1,6 +1,7 @@
 ﻿using WebAppExample.DTOs;
 using WebAppExample.Services;
 using WebAppExample.Models;
+using WebAppExample.Controllers;
 
 namespace WebAppExample.Services;
 
@@ -110,4 +111,12 @@ public class StudentService : IStudentService
 
         return true;
     }
+
+    public bool EmailExists(string email, int? excludeStudentId = null)
+    {
+        return _students.Any(s =>
+            s.Email.Equals(email, StringComparison.OrdinalIgnoreCase)
+            && s.Id != excludeStudentId);
+    }
+
 }
