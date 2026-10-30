@@ -3,7 +3,7 @@ using WebAppExample.Data;
 using WebAppExample.Models;
 using WebAppExample.Repositories;
 
-namespace WebApiPractice.Repositories;
+namespace WebAppExample.Repositories;
 
 public class StudentRepository : IStudentRepository
 {
