@@ -7,6 +7,12 @@ namespace WebAppExample.Services;
 
 public class StudentService : IStudentService
 {
+    private readonly ILogger<StudentService> _logger;
+
+    public StudentService(ILogger<StudentService> logger)
+    {
+        _logger = logger;
+    }
     private readonly List<Student> _students = new()
     {
         new Student
@@ -59,6 +65,8 @@ public class StudentService : IStudentService
     // POST: Add a student
     public StudentDto AddStudent(CreateStudentDto studentDto)
     {
+        _logger.LogInformation("Adding student with email {Email}", studentDto.Email);
+
         var student = new Student
         {
             Id = _nextId++,
@@ -68,6 +76,8 @@ public class StudentService : IStudentService
         };
 
         _students.Add(student);
+
+        _logger.LogInformation("Student created successfully with ID {StudentId}", student.Id);
 
         return new StudentDto
         {
