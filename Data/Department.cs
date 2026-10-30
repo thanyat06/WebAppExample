@@ -1,5 +1,5 @@
 ﻿namespace WebAppExample.Models;
-{
+
     public class Department
     {
         public int DepartmentId { get; set; }
@@ -10,4 +10,4 @@
         public ICollection<Student> Students { get; set; }
             = new List<Student>();
     }
-}
+
