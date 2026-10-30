@@ -18,14 +18,14 @@ public class StudentController : ControllerBase
 
     // GET: api/students
     [HttpGet]
-    public ActionResult<List<Student>> GetAllStudents()
+    public ActionResult<List<StudentDto>> GetAllStudents()
     {
         return Ok(_studentService.GetAllStudents());
     }
 
     // GET: api/students/1
     [HttpGet("{id}")]
-    public ActionResult<Student> GetStudentById(int id)
+    public ActionResult<StudentDto> GetStudentById(int id)
     {
         var student = _studentService.GetStudentById(id);
 
